@@ -1,13 +1,17 @@
-const express = require("express");
-const app = express();
-require("dotenv").config();
-const roomsRouter = require("./routes/rooms.routes");
+const express = require("express")
 
-const PORT = process.env.PORT || 5000;
+const path = require("path");
+const fileRoutes  = require("./Routes/files.routes")
+
+const app = express();
+const port = 5000
 
 app.use(express.json());
-app.use(roomsRouter);
+app.use(fileRoutes)
+//API to create file with current timestamp content and file name
 
-app.listen(PORT, () => {
-  console.log(`App is running on port ${PORT}`);
-});
+//API to retrive the all text files in the folder
+
+app.listen(port, () => {
+   console.log(`server is started on ${port}`)
+})
